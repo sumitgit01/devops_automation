@@ -14,14 +14,17 @@ pipeline {
         }
     stage('checkout SCM') {
             steps {
-                sh 'java --version'
+                sh """
+                git clone https://github.com/sumitgit01/seh-students.git
+                git checkout feature/devops
+                """
             }
         }
     stage('build provisioning') {
             steps {
                 sh """
-                #mvn clean install
-                ls -alrt
+                cd sumitgit01/seh-students/
+                mvn clean install
                 """
             }
         }
