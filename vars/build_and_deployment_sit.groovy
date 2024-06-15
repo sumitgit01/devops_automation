@@ -1,5 +1,7 @@
 pipeline {
-    agent agent1
+    agent {
+        label 'agent1'
+    }
  tools{
      jdk 'jdk17'
      maven 'maven3'
@@ -18,7 +20,7 @@ pipeline {
     stage('build provisioning') {
             steps {
                 sh """
-                mvn clean install
+                #mvn clean install
                 ls -alrt
                 """
             }
