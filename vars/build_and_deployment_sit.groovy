@@ -26,17 +26,19 @@ pipeline {
             steps {
                 dir("${WORKSPACE}/seh-students"){
                     sh """
-                    mvn clean install
+                        mvn clean install
                     """
                 }
             }
         }
         stage('deploy app') {
-            dir("${WORKSPACE}/seh-students/target"){
-                sh """
-                    chmod +x seh-students.jar
-                    java -jar seh-students.jar
-                """
+            steps {
+                dir("${WORKSPACE}/seh-students/target"){
+                    sh """
+                        chmod +x seh-students.jar
+                        java -jar seh-students.jar
+                    """
+                }
             }
         }
     }
