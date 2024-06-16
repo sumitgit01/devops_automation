@@ -17,6 +17,7 @@ pipeline {
                 cleanWs()
                 sh """
                 git clone https://github.com/sumitgit01/seh-students.git
+                cd seh-students/
                 git checkout feature/devops
                 """
             }
@@ -24,7 +25,6 @@ pipeline {
     stage('build provisioning') {
             steps {
                 sh """
-                cd seh-students/
                 mvn clean install
                 """
             }
