@@ -14,6 +14,7 @@ pipeline {
         }
     stage('checkout SCM') {
             steps {
+                cleanWs()
                 sh """
                 git clone https://github.com/sumitgit01/seh-students.git
                 git checkout feature/devops
@@ -27,6 +28,11 @@ pipeline {
                 mvn clean install
                 """
             }
+        }
+    }
+    post {
+        failure {
+            cleanWs()
         }
     }
 }
