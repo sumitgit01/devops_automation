@@ -18,7 +18,7 @@ pipeline {
                 sh """
                 git clone https://github.com/sumitgit01/seh-students.git
                 cd seh-students/
-                git checkout feature/devops
+                #git checkout feature/devops
                 """
             }
         }
