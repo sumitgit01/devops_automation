@@ -24,9 +24,11 @@ pipeline {
         }
     stage('build provisioning') {
             steps {
-                sh """
-                mvn clean install
-                """
+                dir("${WORKSPACE}/seh-students"){
+                    sh """
+                    mvn clean install
+                    """
+                }
             }
         }
     }
