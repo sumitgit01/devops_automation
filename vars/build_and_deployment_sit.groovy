@@ -23,7 +23,7 @@ pipeline {
     stage('build provisioning') {
             steps {
                 sh """
-                cd sumitgit01/seh-students/
+                cd seh-students/
                 mvn clean install
                 """
             }
