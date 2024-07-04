@@ -6,6 +6,9 @@ pipeline {
      jdk 'jdk17'
      maven 'maven3'
  }
+def bit_bucket_repo_url="https://github.com/sumitgit01/seh-students.git"   
+def bitBucketCredentialsid="OWNSEH" 
+
     stages {
         stage('Which Java?') {
             steps {
@@ -15,11 +18,14 @@ pipeline {
         stage('checkout SCM') {
                 steps {
                     cleanWs()
-                    sh """
+                    /* sh """
                     git clone https://github.com/sumitgit01/seh-students.git
                     cd seh-students/
                     #git checkout feature/devops
-                    """
+                    """ */
+                    git branch: 'main', url: "${bit_bucket_repo_url}", credentialsId: "${bitBucketCredentialsid}"
+
+
                 }
             }
         stage('build provisioning') {
