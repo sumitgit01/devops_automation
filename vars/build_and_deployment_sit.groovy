@@ -31,7 +31,8 @@ pipeline {
             }
         stage('build provisioning') {
             steps {
-                dir("${WORKSPACE}/seh-students"){
+                //dir("${WORKSPACE}/seh-students"){
+                dir("${WORKSPACE}"){
                     sh """
                         mvn clean install
                     """
@@ -51,7 +52,8 @@ pipeline {
     }
     post {
         failure {
-            cleanWs()
+            //cleanWs()
+            print("job is failing")
         }
     }
 }
