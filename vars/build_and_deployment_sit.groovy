@@ -29,15 +29,13 @@ pipeline {
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[url: "${bit_bucket_repo_url}", credentialsId: "${bitBucketCredentialsid}"]],
                     extensions: [[$class: 'CloneOption', depth: 1, noTags: false, reference: '', shallow: true, timeout: 120]]])
-                    withCredentials([usernameColonPassword(credentialsId: "${bitBucketCredentialsid}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
+                    /* withCredentials([usernameColonPassword(credentialsId: "${bitBucketCredentialsid}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                         sh """
                         export GIT_COMMITTER_NAME='CICD_SEH'
                         export GIT_COMMITTER_EMAIL='sumitjoshi1988@gmail.com'
                         git config http.sslverify false 
                         """
-                    }
-
-
+                    } */
 
                 }
             }
