@@ -1,3 +1,6 @@
+def bit_bucket_repo_url="https://github.com/sumitgit01/seh-students.git"   
+def bitBucketCredentialsid="OWNSEH"
+
 pipeline {
     agent {
         label 'agent1'
@@ -6,8 +9,6 @@ pipeline {
      jdk 'jdk17'
      maven 'maven3'
  }
-def bit_bucket_repo_url="https://github.com/sumitgit01/seh-students.git"   
-def bitBucketCredentialsid="OWNSEH" 
 
     stages {
         stage('Which Java?') {
